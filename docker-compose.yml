@@ -25,5 +25,14 @@ services:
             - persistente:/var/lib/mysql
         networks:
             - default
+    phpmyadmin:
+        image: phpmyadmin
+        ports:
+            - "8080:80"
+        environment:
+            PMA_HOST: db
+            MYSQL_ROOT_PASSWORD: ${PASSWORD_ROOT_MYSQL}
+        networks:
+            - default
 volumes:
     persistente:
